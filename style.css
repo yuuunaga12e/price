@@ -1,0 +1,415 @@
+/* Basic Setup */
+:root {
+    /* Color Palette - Soft, Trustworthy, Natural */
+    --primary-color: #6F8B74;
+    /* Sage Green */
+    --accent-color: #D6A472;
+    /* Warm Brown/Gold from image */
+    --bg-color: #FAFAF9;
+    /* Warm White */
+    --text-color: #4A4A4A;
+    /* Soft Black */
+    --light-gray: #E5E5E5;
+    --paper-white: #FFFFFF;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+    background-color: #555;
+    color: var(--text-color);
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* A4 Paper Container */
+.page-container {
+    background-color: var(--paper-white);
+    width: 210mm;
+    /* A4 Width */
+    min-height: 297mm;
+    /* A4 Height */
+    padding: 15mm 20mm;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    margin: 0 auto;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 25px;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 15px;
+}
+
+.main-title {
+    font-size: 20px;
+    letter-spacing: 0.1em;
+    margin-bottom: 5px;
+    color: #888;
+}
+
+.subtitle {
+    font-size: 12px;
+    color: #999;
+    margin-bottom: 10px;
+}
+
+.provider-name {
+    font-size: 28px;
+    color: var(--primary-color);
+    line-height: 1.2;
+    margin-top: 5px;
+}
+
+.provider-name-jp {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+/* Intro Text Only */
+.intro-text-only {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* Split Layout for Top Section */
+.split-layout-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.left-content {
+    flex: 1;
+    /* Takes up remaining space */
+}
+
+.right-image {
+    width: 40%;
+    /* Image takes about 40% width */
+    display: flex;
+    align-items: center;
+    margin-top: 50px;
+    /* Pushed down to align with Business Hours box approx */
+}
+
+.top-profile-img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+}
+
+/* Rate Plans Grid in Split Layout */
+.rate-plans {
+    display: flex;
+    justify-content: space-between;
+    /* Spread them out */
+    gap: 10px;
+    /* Smaller gap for tighter space */
+    margin-bottom: 15px;
+}
+
+.rate-card {
+    background-color: #fff;
+    border: 1px solid var(--light-gray);
+    border-radius: 8px;
+    padding: 10px;
+    /* Reduced padding for compact fit */
+    text-align: center;
+    width: 48%;
+    /* Keep percentage width */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.rate-card.highlight {
+    background-color: #fff;
+    border-color: var(--accent-color);
+}
+
+.card-title {
+    font-size: 16px;
+    /* Slightly smaller title */
+    margin-bottom: 5px;
+    color: var(--text-color);
+    border-bottom: 1px dashed var(--light-gray);
+    padding-bottom: 5px;
+}
+
+.card-price {
+    font-size: 22px;
+    /* Adjusted price size */
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+/* Sections */
+.section {
+    margin-bottom: 20px;
+}
+
+.section-title {
+    font-size: 18px;
+    border-left: 5px solid var(--accent-color);
+    padding-left: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.section-image {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    object-position: center center;
+    border-radius: 6px;
+    opacity: 0.95;
+}
+
+.footer-img {
+    height: 100px;
+    opacity: 0.8;
+}
+
+.image-wrapper-center {
+    text-align: center;
+    margin: 20px 0;
+}
+
+
+
+.card-details {
+    font-size: 12px;
+    color: #666;
+}
+
+.highlight-text {
+    font-weight: bold;
+    color: #555;
+    background: #eee;
+    padding: 2px 6px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.business-hours {
+    text-align: center;
+    background-color: #fff;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.usage-notes {
+    text-align: center;
+    font-size: 12px;
+    color: #555;
+    background-color: #F0F4F1;
+    padding: 8px;
+    border-radius: 6px;
+    margin-top: 10px;
+}
+
+.option-price {
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.small-note {
+    font-size: 11px;
+    color: #666;
+}
+
+/* Table */
+.simple-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.simple-table th,
+.simple-table td {
+    border-bottom: 1px solid var(--light-gray);
+    padding: 8px;
+    text-align: left;
+}
+
+.simple-table th {
+    width: 40%;
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.policy-table td.free {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.policy-subtext {
+    font-size: 11px;
+    color: #666;
+    margin-top: 5px;
+}
+
+/* Policy Text */
+.policy-text {
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+/* Info Grid */
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.info-item {
+    background-color: #F8F8F8;
+    padding: 12px;
+    border-radius: 6px;
+}
+
+.info-item h3 {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.info-item p {
+    font-size: 12px;
+}
+
+/* Footer & Contact */
+.footer {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 2px solid var(--light-gray);
+}
+
+.contact-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.contact-title {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.contact-info-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: flex-start;
+}
+
+.contact-text {
+    flex: 1;
+}
+
+.contact-item {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.contact-item .label {
+    font-weight: bold;
+    width: 50px;
+    color: #888;
+    font-size: 11px;
+    text-transform: uppercase;
+}
+
+.contact-item .value {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+/* QR Code Area */
+.qr-area {
+    display: flex;
+    gap: 15px;
+}
+
+.qr-box {
+    text-align: center;
+}
+
+.qr-placeholder {
+    width: 90px;
+    height: 90px;
+    background-color: #EEE;
+    border: 2px dashed #CCC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    color: #999;
+    border-radius: 6px;
+    margin-bottom: 3px;
+}
+
+.qr-label {
+    font-size: 11px;
+    color: #666;
+    font-weight: bold;
+}
+
+/* Print Specifics */
+@media print {
+    body {
+        background-color: white;
+        padding: 0;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .page-container {
+        width: 100%;
+        height: auto;
+        box-shadow: none;
+        margin: 0;
+        padding: 0;
+        page-break-after: always;
+    }
+
+    .section-title {
+        border-color: var(--accent-color) !important;
+    }
+
+    .rate-card {
+        background-color: #fff !important;
+        -webkit-print-color-adjust: exact;
+    }
+
+    .rate-card.highlight {
+        background-color: #fff !important;
+        -webkit-print-color-adjust: exact;
+    }
+}
