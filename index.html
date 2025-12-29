@@ -170,33 +170,93 @@
                         </div>
                         <div class="contact-item">
                             <span class="label">Tel</span>
-                            <span class="value"></span>
+                            <span class="value" id="contact-phone"></span>
                         </div>
                         <div class="contact-item">
                             <span class="label">Mail</span>
-                            <span class="value"></span>
+                            <span class="value" id="contact-email"></span>
                         </div>
                     </div>
 
                     <!-- QR Codes -->
                     <div class="qr-area">
                         <div class="qr-box">
-                            <div class="qr-placeholder">LINE<br>QR</div>
-                            <span class="qr-label">LINE</span>
+                            <div class="qr-placeholder" id="qr-box-line">LINE<br>QR</div>
+                            <a id="qr-link-line" class="qr-label" target="_blank">LINE</a>
                         </div>
                         <div class="qr-box">
-                            <div class="qr-placeholder">Insta<br>QR</div>
-                            <span class="qr-label">Instagram</span>
+                            <div class="qr-placeholder" id="qr-box-insta">Insta<br>QR</div>
+                            <a id="qr-link-insta" class="qr-label" target="_blank">Instagram</a>
                         </div>
                         <div class="qr-box">
-                            <div class="qr-placeholder">HP<br>QR</div>
-                            <span class="qr-label">HP</span>
+                            <div class="qr-placeholder" id="qr-box-hp">HP<br>QR</div>
+                            <a id="qr-link-hp" class="qr-label" target="_blank">HP</a>
                         </div>
                     </div>
                 </div>
             </div>
         </footer>
     </div>
+
+    <!-- 
+    ==================================================
+      【設定エリア】ここに電話番号とメールアドレスを入力してください
+    ==================================================
+    -->
+    <script>
+        // ▼ テキスト情報の変更（""の中を書き換えてください）
+        const phoneNumber = "090-0000-0000";       // 電話番号
+        const emailAddress = "example@email.com";  // メールアドレス
+
+        // ▼ QRコード画像の変更
+        // 画像がある場合は、ファイル名（例: "line.png"）を入力してください。
+        // ※画像ファイルは index.html と同じフォルダに置いてください。
+        // ※空欄 "" のままにすると、灰色の箱（仮表示）のままになります。
+        const qrLineImage = "";  // LINEのQR画像
+        const qrInstaImage = "";  // InstagramのQR画像
+        const qrHpImage = "";  // HPのQR画像
+
+        // ▼ リンク先URLの変更（""の中を書き換えてください）
+        // 下の文字（LINEなど）をクリックした時に飛ぶリンク先です。
+        const qrLineUrl = "https://line.me/";            // LINEのリンク
+        const qrInstaUrl = "https://www.instagram.com/";  // Instagramのリンク
+        const qrHpUrl = "https://example.com/";        // HPのリンク
+
+
+        // ▼ ここから下はプログラム用（変更不要）
+        document.addEventListener('DOMContentLoaded', function () {
+            // テキストの反映
+            document.getElementById('contact-phone').textContent = phoneNumber;
+            document.getElementById('contact-email').textContent = emailAddress;
+
+            // リンクの反映
+            function updateLink(id, url) {
+                const el = document.getElementById(id);
+                if (el && url) {
+                    el.href = url;
+                }
+            }
+            updateLink('qr-link-line', qrLineUrl);
+            updateLink('qr-link-insta', qrInstaUrl);
+            updateLink('qr-link-hp', qrHpUrl);
+
+            // QR画像の反映関数
+            function updateQr(id, imagePath) {
+                if (imagePath && imagePath !== "") {
+                    const el = document.getElementById(id);
+                    if (el) {
+                        // プレースホルダーを画像タグに置き換え
+                        el.outerHTML = '<img src="' + imagePath + '" class="qr-image-final" alt="QR">';
+                    }
+                }
+            }
+
+            // 各QRコードの更新実行
+            updateQr('qr-box-line', qrLineImage);
+            updateQr('qr-box-insta', qrInstaImage);
+            updateQr('qr-box-hp', qrHpImage);
+        });
+    </script>
 
 </body>
 
