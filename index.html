@@ -206,15 +206,34 @@
     -->
     <script>
         // ▼ テキスト情報の変更（""の中を書き換えてください）
-        const phoneNumber = "090-0000-0000";       // 電話番号
-        const emailAddress = "example@email.com";  // メールアドレス
+        const phoneNumber = "080-1726-0359";       // 電話番号
+        const emailAddress = "yuuunaga.12@gmail.com";  // メールアドレス
+
+        // ▼ リンク先URLの変更（""の中を書き換えてください）
+        // 下の文字（LINEなど）をクリックした時に飛ぶリンク先です。
+        // ※HTMLに直接書かれているリンクを上書きするための設定です
+        const qrLineUrl = "https://lin.ee/RlVTD8p";            // LINEのリンク
+        const qrInstaUrl = "https://www.instagram.com/yukari_babysitter.fukuoka/";  // Instagramのリンク
+        const qrHpUrl = "https://lynxbase.vercel.app/";        // HPのリンク
 
         // ▼ ここから下はプログラム用（変更不要）
         document.addEventListener('DOMContentLoaded', function () {
             // テキストの反映
             document.getElementById('contact-phone').textContent = phoneNumber;
             document.getElementById('contact-email').textContent = emailAddress;
+
+            // リンクの反映（HTMLに埋め込まれたリンクをJSで上書きする場合）
+            function updateLink(id, url) {
+                const el = document.getElementById(id);
+                if (el && url) {
+                    el.href = url;
+                }
+            }
+            updateLink('qr-link-line', qrLineUrl);
+            updateLink('qr-link-insta', qrInstaUrl);
+            updateLink('qr-link-hp', qrHpUrl);
         });
+
     </script>
 </body>
 
