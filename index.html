@@ -209,29 +209,30 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
 
-            // config.js が読み込めなかった場合のダミー（プレースホルダー）
-            // これにより、ファイルがなくてもエラーにならず仮情報が表示されます
-            if (typeof phoneNumber === 'undefined') var phoneNumber = "090-0000-0000";
-            if (typeof emailAddress === 'undefined') var emailAddress = "example@email.com";
-            if (typeof qrLineUrl === 'undefined') var qrLineUrl = "https://line.me/";
-            if (typeof qrInstaUrl === 'undefined') var qrInstaUrl = "https://www.instagram.com/";
-            if (typeof qrHpUrl === 'undefined') var qrHpUrl = "https://example.com/";
+            // config.js の値を安全に取得（読み込めなかった場合は仮の値を設定）
+            // ※ここで let/const で同じ名前を使うと競合するため、別の変数名で扱います
+            const usePhoneNumber = (typeof phoneNumber !== 'undefined') ? phoneNumber : "090-0000-0000";
+            const useEmailAddress = (typeof emailAddress !== 'undefined') ? emailAddress : "example@email.com";
+
+            const useQrLineUrl = (typeof qrLineUrl !== 'undefined') ? qrLineUrl : "https://line.me/";
+            const useQrInstaUrl = (typeof qrInstaUrl !== 'undefined') ? qrInstaUrl : "https://www.instagram.com/";
+            const useQrHpUrl = (typeof qrHpUrl !== 'undefined') ? qrHpUrl : "https://example.com/";
 
 
             // テキストの反映
-            document.getElementById('contact-phone').textContent = phoneNumber;
-            document.getElementById('contact-email').textContent = emailAddress;
+            document.getElementById('contact-phone').textContent = usePhoneNumber;
+            document.getElementById('contact-email').textContent = useEmailAddress;
 
-            // リンクの反映（HTMLに埋め込まれたリンクをJSで上書きする場合）
+            // リンクの反映
             function updateLink(id, url) {
                 const el = document.getElementById(id);
                 if (el && url) {
                     el.href = url;
                 }
             }
-            updateLink('qr-link-line', qrLineUrl);
-            updateLink('qr-link-insta', qrInstaUrl);
-            updateLink('qr-link-hp', qrHpUrl);
+            updateLink('qr-link-line', useQrLineUrl);
+            updateLink('qr-link-insta', useQrInstaUrl);
+            updateLink('qr-link-hp', useQrHpUrl); // HPが準備中の場合でもリンクがあれば設定されます
         });
     </script>
 </body>
