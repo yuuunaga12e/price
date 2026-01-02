@@ -201,23 +201,23 @@
 
     <!-- 
     ==================================================
-      【設定エリア】ここに電話番号とメールアドレスを入力してください
+      【設定エリア】設定は別ファイル (config.js) で管理しています
+      ※ config.js は個人情報を含むため、Gitにはアップロードされません。
     ==================================================
     -->
+    <script src="config.js"></script>
     <script>
-        // ▼ テキスト情報の変更（""の中を書き換えてください）
-        const phoneNumber = "080-1726-0359";       // 電話番号
-        const emailAddress = "yuuunaga.12@gmail.com";  // メールアドレス
-
-        // ▼ リンク先URLの変更（""の中を書き換えてください）
-        // 下の文字（LINEなど）をクリックした時に飛ぶリンク先です。
-        // ※HTMLに直接書かれているリンクを上書きするための設定です
-        const qrLineUrl = "https://lin.ee/RlVTD8p";            // LINEのリンク
-        const qrInstaUrl = "https://www.instagram.com/yukari_babysitter.fukuoka/";  // Instagramのリンク
-        const qrHpUrl = "https://lynxbase.vercel.app/";        // HPのリンク
-
-        // ▼ ここから下はプログラム用（変更不要）
         document.addEventListener('DOMContentLoaded', function () {
+
+            // config.js が読み込めなかった場合のダミー（プレースホルダー）
+            // これにより、ファイルがなくてもエラーにならず仮情報が表示されます
+            if (typeof phoneNumber === 'undefined') var phoneNumber = "090-0000-0000";
+            if (typeof emailAddress === 'undefined') var emailAddress = "example@email.com";
+            if (typeof qrLineUrl === 'undefined') var qrLineUrl = "https://line.me/";
+            if (typeof qrInstaUrl === 'undefined') var qrInstaUrl = "https://www.instagram.com/";
+            if (typeof qrHpUrl === 'undefined') var qrHpUrl = "https://example.com/";
+
+
             // テキストの反映
             document.getElementById('contact-phone').textContent = phoneNumber;
             document.getElementById('contact-email').textContent = emailAddress;
@@ -233,7 +233,6 @@
             updateLink('qr-link-insta', qrInstaUrl);
             updateLink('qr-link-hp', qrHpUrl);
         });
-
     </script>
 </body>
 

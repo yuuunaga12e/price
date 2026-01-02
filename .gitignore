@@ -1,0 +1,8 @@
+# Sensitive config file
+config.js
+
+# Generated PDF files
+*.pdf
+
+# System files
+.DS_Store
