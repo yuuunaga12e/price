@@ -698,14 +698,53 @@ body {
         display: block;
     }
 
-    /* Keep policy table more standard but maybe shrink text */
+    /* Better Mobile Policy Table (Card Style) */
+    .policy-table {
+        border-spacing: 0;
+        border-collapse: separate;
+        /* Allow border-radius */
+    }
+
     .policy-table th,
     .policy-table td {
-        display: table-cell;
-        /* Revert to table layout for policy if rows are simple */
+        display: block;
+        width: 100%;
+    }
+
+    .policy-table tr {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 15px;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+        /* Subtle shadow for depth */
     }
 
     .policy-table th {
-        width: 40%;
+        background-color: #f4f7f3;
+        /* Very light sage tint to match theme */
+        color: var(--color-dark-green);
+        padding: 12px 15px;
+        font-size: 14px;
+        text-align: left;
+        border-bottom: 1px solid #eee;
+        font-weight: bold;
+    }
+
+    .policy-table td {
+        padding: 15px;
+        background-color: #fff;
+        text-align: right;
+        /* Values right aligned */
+        border-bottom: none;
+        font-size: 15px;
+    }
+
+    .policy-table td.free {
+        font-weight: bold;
+        color: var(--color-dark-green);
+        font-size: 16px;
     }
 }
